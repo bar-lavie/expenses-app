@@ -29,6 +29,10 @@ function getSteps() {
     return ['What was the expense?', 'What was the amount?', 'Give it a description?'];
 }
 
+const handleFieldInput = (e) => {
+    console.log(e.target.value)
+};
+
 function getStepContent(step) {
     switch (step) {
         case 0:
@@ -39,7 +43,7 @@ function getStepContent(step) {
                     label="Required"
                     placeholder="e.g. Food"
                     variant="outlined"
-                    input={handleFieldInput}
+                    onChange={handleFieldInput}
                     InputLabelProps={{
                         shrink: true,
                     }}
@@ -95,9 +99,7 @@ export default function VerticalLinearStepper() {
         setActiveStep(0);
     };
 
-    const handleFieldInput = (e) => {
-        console.log(e.target.value)
-    };
+
 
 
 
