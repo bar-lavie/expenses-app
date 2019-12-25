@@ -39,6 +39,7 @@ function getStepContent(step) {
                     label="Required"
                     placeholder="e.g. Food"
                     variant="outlined"
+                    input={handleFieldInput}
                     InputLabelProps={{
                         shrink: true,
                     }}
@@ -78,6 +79,8 @@ function getStepContent(step) {
 export default function VerticalLinearStepper() {
     const classes = useStyles();
     const [activeStep, setActiveStep] = React.useState(0);
+    const [stepValue, setStepValue] = React.useState([]);
+
     const steps = getSteps();
 
     const handleNext = () => {
@@ -91,6 +94,12 @@ export default function VerticalLinearStepper() {
     const handleReset = () => {
         setActiveStep(0);
     };
+
+    const handleFieldInput = (e) => {
+        console.log(e.target.value)
+    };
+
+
 
     return (
         <div className={classes.root}>
