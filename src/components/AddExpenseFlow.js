@@ -29,56 +29,8 @@ function getSteps() {
     return ['What was the expense?', 'What was the amount?', 'Give it a description?'];
 }
 
-const handleFieldInput = (e) => {
-    console.log(e.target.value)
-};
 
-function getStepContent(step) {
-    switch (step) {
-        case 0:
-            return (
-                <TextField
-                    required
-                    id="outlined-required"
-                    label="Required"
-                    placeholder="e.g. Food"
-                    variant="outlined"
-                    onChange={handleFieldInput}
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                />
-            );
-        case 1:
-            return (
-                <TextField
-                    required
-                    id="outlined-required"
-                    label="Required"
-                    placeholder="e.g. 100"
-                    variant="outlined"
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                />
-            );
-        case 2:
-            return (
-                <TextField
-                    required
-                    id="outlined-required"
-                    label="Required"
-                    placeholder="Hello World"
-                    variant="outlined"
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                />
-            );
-        default:
-            return 'Unknown step';
-    }
-}
+
 
 export default function VerticalLinearStepper() {
     const classes = useStyles();
@@ -99,8 +51,62 @@ export default function VerticalLinearStepper() {
         setActiveStep(0);
     };
 
+    const handleFieldInput = (e) => {
+        console.log(e.target.name)
+        console.log(stepValue)
+    };
 
-
+    const getStepContent = (step) => {
+        switch (step) {
+            case 0:
+                return (
+                    <TextField
+                        required
+                        name='name'
+                        id="outlined-required"
+                        label="Required"
+                        placeholder="e.g. Food"
+                        variant="outlined"
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                        onChange={handleFieldInput}
+                    />
+                );
+            case 1:
+                return (
+                    <TextField
+                        required
+                        name='amount'
+                        id="outlined-required"
+                        label="Required"
+                        placeholder="e.g. 100"
+                        variant="outlined"
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                        onChange={handleFieldInput}
+                    />
+                );
+            case 2:
+                return (
+                    <TextField
+                        required
+                        name='description'
+                        id="outlined-required"
+                        label="Required"
+                        placeholder="Hello World"
+                        variant="outlined"
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                        onChange={handleFieldInput}
+                    />
+                );
+            default:
+                return 'Unknown step';
+        }
+    }
 
 
     return (
