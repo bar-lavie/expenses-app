@@ -30,9 +30,7 @@ function getSteps() {
 }
 
 
-
-
-export default function VerticalLinearStepper() {
+export default function AddExpenseFlow() {
     const classes = useStyles();
     const [activeStep, setActiveStep] = React.useState(0);
     const [stepValue, setStepValue] = React.useState([]);
@@ -52,8 +50,10 @@ export default function VerticalLinearStepper() {
     };
 
     const handleFieldInput = (e) => {
-        console.log(e.target.name)
-        console.log(stepValue)
+        setStepValue({
+            ...stepValue,
+            [e.target.name]: e.target.value
+        });
     };
 
     const getStepContent = (step) => {

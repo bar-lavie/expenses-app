@@ -37,35 +37,11 @@ function generate(element) {
     );
 }
 
-export default function InteractiveList() {
+export default function InteractiveList(props) {
     const classes = useStyles();
-    const [dense, setDense] = React.useState(false);
-    const [secondary, setSecondary] = React.useState(false);
 
     return (
         <div className={classes.root}>
-            <FormGroup row>
-                <FormControlLabel
-                    control={
-                        <Checkbox
-                            checked={dense}
-                            onChange={event => setDense(event.target.checked)}
-                            value="dense"
-                        />
-                    }
-                    label="Enable dense"
-                />
-                <FormControlLabel
-                    control={
-                        <Checkbox
-                            checked={secondary}
-                            onChange={event => setSecondary(event.target.checked)}
-                            value="secondary"
-                        />
-                    }
-                    label="Enable secondary text"
-                />
-            </FormGroup>
 
             <Grid container spacing={2}>
 
@@ -74,7 +50,7 @@ export default function InteractiveList() {
                         Avatar with text and icon
                     </Typography>
                     <div className={classes.demo}>
-                        <List dense={dense}>
+                        <List dense={props.dense}>
                             {generate(
                                 <ListItem>
                                     <ListItemAvatar>
@@ -84,7 +60,7 @@ export default function InteractiveList() {
                                     </ListItemAvatar>
                                     <ListItemText
                                         primary="Single-line item"
-                                        secondary={secondary ? 'Secondary text' : null}
+                                        secondary={props.secondary ? 'Secondary text' : null}
                                     />
                                     <ListItemSecondaryAction>
                                         <IconButton edge="end" aria-label="delete">

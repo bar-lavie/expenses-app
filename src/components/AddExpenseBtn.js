@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-export default function FloatingActionButtons(props) {
+export default function AddExpenses(props) {
     const classes = useStyles();
 
     return (

@@ -4,7 +4,7 @@ import Dialog from '@material-ui/core/Dialog';
 import AddExpenseFlow from "./AddExpenseFlow";
 
 
-export default function SimpleDialogDemo(props) {
+export default function AddExpenseDialog(props) {
 
     const [open, setOpen] = React.useState(props.status);
 

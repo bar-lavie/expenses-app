@@ -6,8 +6,8 @@ import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 
 import SettingsIcon from "@material-ui/icons/Settings";
-import AddCircleIcon from "@material-ui/icons/AddCircle";
-import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
+import ViewListIcon from '@material-ui/icons/ViewList';
+import GroupIcon from '@material-ui/icons/Group';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -46,8 +46,8 @@ export default function Navigation() {
             className={classes.root}
         >
             <BottomNavigationAction label="Settings" icon={<SettingsIcon/>} component={Link} to='/settings'/>
-            <BottomNavigationAction label="Add" icon={<AddCircleIcon/>} component={Link} to='/expenses'/>
-            <BottomNavigationAction label="December" icon={<CalendarTodayIcon/>} component={Link} to='/calendar'/>
+            <BottomNavigationAction label="Expenses" icon={<ViewListIcon/>} component={Link} to='/expenses'/>
+            <BottomNavigationAction label="Compare" icon={<GroupIcon/>} component={Link} to='/calendar'/>
         </BottomNavigation>
     )
 }
