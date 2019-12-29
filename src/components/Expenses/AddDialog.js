@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
-import AddExpenseFlow from "./AddExpenseFlow";
+import DialogStepper from "./DialogStepper";
 
 
-export default function AddExpenseDialog(props) {
+export default function AddDialog(props) {
 
     const [open, setOpen] = React.useState(props.status);
 
@@ -22,7 +22,7 @@ export default function AddExpenseDialog(props) {
         <div>
             <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
                 <DialogTitle id="simple-dialog-title">Set backup account</DialogTitle>
-                <AddExpenseFlow/>
+                <DialogStepper/>
             </Dialog>
         </div>
     );

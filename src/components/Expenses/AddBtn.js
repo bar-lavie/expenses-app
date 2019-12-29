@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-export default function AddExpenses(props) {
+export default function AddBtn(props) {
     const classes = useStyles();
 
     return (

@@ -1,8 +1,8 @@
 import React from 'react';
-import ExpansesList from "../components/ExpensesList";
-import AddExpense from "../components/AddExpenseBtn";
-import AddExpenseDialog from "../components/AddExpenseDialog";
-import ListSettings from "../components/ListSettings";
+import ListItems from "../components/Expenses/ListItems";
+import AddBtn from "../components/Expenses/AddBtn";
+import AddDialog from "../components/Expenses/AddDialog";
+import Settings from "../components/Expenses/Settings";
 
 
 class Expenses extends React.Component {
@@ -27,10 +27,10 @@ class Expenses extends React.Component {
     render() {
         return (
             <>
-                <ListSettings/>
-                <ExpansesList/>
-                <AddExpense click={this.handleOpenDialog}/>
-                <AddExpenseDialog close={this.handleCloseDialog} status={this.state.openDialog}/>
+                <Settings/>
+                <ListItems/>
+                <AddBtn click={this.handleOpenDialog}/>
+                <AddDialog close={this.handleCloseDialog} status={this.state.openDialog}/>
             </>
         );
     }

@@ -30,7 +30,7 @@ function getSteps() {
 }
 
 
-export default function AddExpenseFlow() {
+export default function DialogStepper() {
     const classes = useStyles();
     const [activeStep, setActiveStep] = React.useState(0);
     const [stepValue, setStepValue] = React.useState([]);

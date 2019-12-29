@@ -37,7 +37,7 @@ function generate(element) {
     );
 }
 
-export default function InteractiveList(props) {
+export default function ListItems(props) {
     const classes = useStyles();
 
     return (
