@@ -9,7 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import Calendar from "./Calendar";
 
 
-export default function Settings(props) {
+export default function Settings() {
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [content, setContent] = React.useState(null);
@@ -69,7 +69,7 @@ export default function Settings(props) {
 
     return (
         <>
-            <Grid container spacing={3}>
+            <Grid container>
                 <Grid item xs={6}>
                     <Button aria-describedby={id} variant="outlined" color="secondary"
                             onClick={handleSetAnchor('calendar')}>

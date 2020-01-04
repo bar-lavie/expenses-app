@@ -30,7 +30,7 @@ export default function Navigation() {
         case '/expenses':
             current = 1;
             break;
-        case '/calendar':
+        case '/compare':
             current = 2;
             break;
     }
@@ -47,7 +47,7 @@ export default function Navigation() {
         >
             <BottomNavigationAction label="Settings" icon={<SettingsIcon/>} component={Link} to='/settings'/>
             <BottomNavigationAction label="Expenses" icon={<ViewListIcon/>} component={Link} to='/expenses'/>
-            <BottomNavigationAction label="Compare" icon={<GroupIcon/>} component={Link} to='/calendar'/>
+            <BottomNavigationAction label="Compare" icon={<GroupIcon/>} component={Link} to='/compare'/>
         </BottomNavigation>
     )
 }

@@ -5,8 +5,6 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import StepContent from '@material-ui/core/StepContent';
 import Button from '@material-ui/core/Button';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles(theme => ({
@@ -30,10 +28,10 @@ function getSteps() {
 }
 
 
-export default function DialogStepper() {
+export default function DialogStepper(props) {
     const classes = useStyles();
     const [activeStep, setActiveStep] = React.useState(0);
-    const [stepValue, setStepValue] = React.useState([]);
+    const [stepsValue, setStepsValue] = React.useState([]);
 
     const steps = getSteps();
 
@@ -45,13 +43,14 @@ export default function DialogStepper() {
         setActiveStep(prevActiveStep => prevActiveStep - 1);
     };
 
-    const handleReset = () => {
-        setActiveStep(0);
+    const handleFinish = () => {
+        props.onFinishAdd(stepsValue)
     };
 
+
     const handleFieldInput = (e) => {
-        setStepValue({
-            ...stepValue,
+        setStepsValue({
+            ...stepsValue,
             [e.target.name]: e.target.value
         });
     };
@@ -70,6 +69,7 @@ export default function DialogStepper() {
                         InputLabelProps={{
                             shrink: true,
                         }}
+                        defaultValue={stepsValue['name']}
                         onChange={handleFieldInput}
                     />
                 );
@@ -85,6 +85,7 @@ export default function DialogStepper() {
                         InputLabelProps={{
                             shrink: true,
                         }}
+                        defaultValue={stepsValue['amount']}
                         onChange={handleFieldInput}
                     />
                 );
@@ -100,6 +101,7 @@ export default function DialogStepper() {
                         InputLabelProps={{
                             shrink: true,
                         }}
+                        defaultValue={stepsValue['description']}
                         onChange={handleFieldInput}
                     />
                 );
@@ -129,7 +131,7 @@ export default function DialogStepper() {
                                     <Button
                                         variant="contained"
                                         color="primary"
-                                        onClick={handleNext}
+                                        onClick={activeStep === steps.length - 1 ? handleFinish : handleNext}
                                         className={classes.button}
                                     >
                                         {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
@@ -140,14 +142,6 @@ export default function DialogStepper() {
                     </Step>
                 ))}
             </Stepper>
-            {activeStep === steps.length && (
-                <Paper square elevation={0} className={classes.resetContainer}>
-                    <Typography>All steps completed - you&apos;re finished</Typography>
-                    <Button onClick={handleReset} className={classes.button}>
-                        Reset
-                    </Button>
-                </Paper>
-            )}
         </div>
     );
 }

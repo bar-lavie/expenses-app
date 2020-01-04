@@ -4,9 +4,10 @@ import {connect} from 'react-redux';
 
 import Layout from "../hoc/Layout";
 
-import Expenses from "./Expenses";
-import Settings from "./Settings";
 import Home from "./Home";
+import Settings from "./Settings";
+import Expenses from "./Expenses";
+import Compare from "./Compare";
 
 class App extends React.Component {
 
@@ -16,8 +17,9 @@ class App extends React.Component {
         let routes = (
             <Switch>
                 <Route path="/" exact component={Home}/>
-                <Route path="/expenses" component={Expenses}/>
                 <Route path="/settings" component={Settings}/>
+                <Route path="/expenses" component={Expenses}/>
+                <Route path="/compare" component={Compare}/>
             </Switch>
         );
 

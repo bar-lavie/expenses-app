@@ -21,8 +21,8 @@ export default function AddDialog(props) {
     return (
         <div>
             <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
-                <DialogTitle id="simple-dialog-title">Set backup account</DialogTitle>
-                <DialogStepper/>
+                <DialogTitle id="simple-dialog-title">Add a new expense</DialogTitle>
+                <DialogStepper onFinishAdd={props.handleFinishAdd}/>
             </Dialog>
         </div>
     );

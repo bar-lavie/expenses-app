@@ -10,10 +10,18 @@ class Layout extends Component {
                 <main>
                     {this.props.children}
                 </main>
+                {this.props.isAuthenticated &&
                 <Navigation/>
+                }
             </>
         )
     }
 }
 
-export default Layout;
+const mapStateToProps = state => {
+    return {
+        isAuthenticated: state.auth.token !== null
+    };
+};
+
+export default connect(mapStateToProps)(Layout);
